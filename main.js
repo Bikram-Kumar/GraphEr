@@ -104,10 +104,10 @@ function main() {
 }
 window.draw = function() {
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-  transformationMatrix = M4.multiply(M4.getScalingMatrix(scalingValue, scalingValue, 1) ,M4.getRotationMatrix(phi, theta, 0));
+  transformationMatrix = M4.multiply(M4.getScalingMatrix(scalingValue, scalingValue, scalingValue) ,M4.getRotationMatrix(phi, theta, 0));
   gl.uniformMatrix4fv(u_transformationMatrix_location, false, transformationMatrix);
   gl.drawArrays(gl.LINES, 0, 6);
-  console.log(gl.getError());
+  console.log(scalingValue);
 }
 
 function createShader(type, source) {
